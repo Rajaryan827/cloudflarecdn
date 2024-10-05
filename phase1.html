@@ -16,6 +16,14 @@
     </div>
     <script>
         //PHASE1 INJCET JS 
+        
+        function showPopup() {
+            document.getElementById('signupPopup').style.display = 'flex';
+        }
+
+        function hidePopup() {
+            document.getElementById('signupPopup').style.display = 'none';
+        }
         function signUp(method) {
             alert('Signing up with ' + method);
             hidePopup();
