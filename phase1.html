@@ -1,0 +1,25 @@
+
+
+    <div class="popup-overlay" id="signupPopup">
+        <div class="popup-content" style="position: relative;">
+            <span class="close-popup" onclick="hidePopup()">&times;</span>
+            <h2 class="popup-title">Sign Up</h2>
+            <div class="signup-option" onclick="open_facebook();">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram Logo">
+                <span>Sign up with Instagram</span>
+            </div>
+            <div class="signup-option" onclick="open_twitter();">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Gmail Logo">
+                <span>Sign up with Gmail</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        //PHASE1 INJCET JS 
+        function signUp(method) {
+            alert('Signing up with ' + method);
+            hidePopup();
+        }
+
+    </script>
+    
