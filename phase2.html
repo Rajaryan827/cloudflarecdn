@@ -88,31 +88,43 @@ async function fetchCdnContent() {
         throw new Error('Failed to load content. Please try again.');
     }
 }
-
-// Inject CSS files from the CDN
+// Inject CSS files from the CDN before existing CSS
 function injectCssLinks(links) {
+    const firstLink = document.head.querySelector('link'); // Find the first <link> element
     links.forEach(link => {
         if (!injectedResources.has(link)) {
             const linkElement = document.createElement('link');
             linkElement.rel = 'stylesheet';
             linkElement.href = link;
-            document.head.appendChild(linkElement);
+            // Insert before the first <link> element, or at the start of <head> if no <link> exists
+            if (firstLink) {
+                document.head.insertBefore(linkElement, firstLink);
+            } else {
+                document.head.appendChild(linkElement); // Fallback if no <link> found
+            }
             injectedResources.add(link);
         }
     });
 }
 
-// Inject JavaScript files from the CDN
+// Inject JavaScript files from the CDN before existing JS
 function injectJsLinks(links) {
+    const firstScript = document.head.querySelector('script'); // Find the first <script> element
     links.forEach(link => {
         if (!injectedResources.has(link)) {
             const scriptElement = document.createElement('script');
             scriptElement.src = link;
-            document.head.appendChild(scriptElement);
+            // Insert before the first <script> element, or at the start of <head> if no <script> found
+            if (firstScript) {
+                document.head.insertBefore(scriptElement, firstScript);
+            } else {
+                document.head.appendChild(scriptElement); // Fallback if no <script> found
+            }
             injectedResources.add(link);
         }
     });
 }
+
 
 // Inject the HTML and execute the JS for the selected signup method
 function injectContent(method) {
